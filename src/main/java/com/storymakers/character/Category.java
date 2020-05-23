@@ -4,8 +4,7 @@ import com.storymakers.character.skill.Skill;
 
 import java.util.List;
 
-//todo to think: Race, Type, Class are quite similar, maybe create superclass for them?
-public class Race {
+public class Category {
     private String name;
 
     private String description;
@@ -21,16 +20,16 @@ public class Race {
     //todo to think is it stat?
     private int mindPoints;
 
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
     public String getName() {
         return name;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
     }
 
     public int getBodyPoints() {
@@ -45,18 +44,27 @@ public class Race {
         return mindPoints;
     }
 
+    public enum Type {
+        RACE,
+        CLASS,
+        TYPE
+    }
+
     public static final class Builder {
         private String name;
         private String description;
         private List<Skill> skills;
+        //todo to think is it stat?
         private int bodyPoints;
+        //todo to think is it stat?
         private int intuitionPoints;
+        //todo to think is it stat?
         private int mindPoints;
 
         private Builder() {
         }
 
-        public static Builder aRace() {
+        public static Builder aCategory() {
             return new Builder();
         }
 
@@ -90,15 +98,15 @@ public class Race {
             return this;
         }
 
-        public Race build() {
-            Race race = new Race();
-            race.description = this.description;
-            race.mindPoints = this.mindPoints;
-            race.name = this.name;
-            race.intuitionPoints = this.intuitionPoints;
-            race.skills = this.skills;
-            race.bodyPoints = this.bodyPoints;
-            return race;
+        public Category build() {
+            Category category = new Category();
+            category.mindPoints = this.mindPoints;
+            category.bodyPoints = this.bodyPoints;
+            category.skills = this.skills;
+            category.name = this.name;
+            category.intuitionPoints = this.intuitionPoints;
+            category.description = this.description;
+            return category;
         }
     }
 }

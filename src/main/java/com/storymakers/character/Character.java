@@ -1,45 +1,52 @@
 package com.storymakers.character;
 
-import java.util.List;
+import com.storymakers.character.state.State;
 
 public class Character {
     private String name;
 
-    private Race race;
+    private Category race;
 
-    private Class clazz;
+    private Category clazz;
 
-    private Type type;
+    private Category type;
 
     private State state;
 
-    public Character(String name, Race race, Class clazz, Type type) {
+    //unmodifiable, current stats are in state
+    private Stats baseStats;
+
+    public Character(String name, Category race, Category clazz, Category type) {
         this.name = name;
         this.race = race;
         this.clazz = clazz;
         this.type = type;
 
         this.state = new State();
+        this.baseStats = new Stats();
     }
 
-    class State {
-        private int health;
-
-        private int mana;
-
-        //todo temporary effects should be here as well, suc as curses, poisoning or positive one
+    public String getName() {
+        return name;
     }
 
-    //todo to think about stats what are they and Skills relationships, to think about proper name
-    class Stats {
-
+    public Category getRace() {
+        return race;
     }
 
-    //todo to think do we need it for mobs?
-    class Inventory {
-        //todo move to State?
-        private int maxSize;
+    public Category getClazz() {
+        return clazz;
+    }
 
-        private List<Object> objects;
+    public Category getType() {
+        return type;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public Stats getBaseStats() {
+        return baseStats;
     }
 }

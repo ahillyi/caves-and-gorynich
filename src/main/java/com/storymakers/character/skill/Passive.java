@@ -1,4 +1,4 @@
 package com.storymakers.character.skill;
 
-public class PassiveSkill extends Skill {
+public class Passive extends Skill {
 }
