@@ -1,4 +1,6 @@
-package com.storymakers.map;
+package com.storymakers.map.global;
+
+import com.storymakers.map.Location;
 
 import java.util.List;
 
